@@ -1,0 +1,14 @@
+name: Primeiro CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  fisrt-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Echo Message"
+        run: echo "Olá Mundo!"
