@@ -17,7 +17,7 @@ jobs:
           ip a
 
       - name: Baixar Codigo
-        users: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: mostrar informações
         run: |
