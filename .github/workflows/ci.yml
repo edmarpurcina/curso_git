@@ -1,9 +1,7 @@
 name: Primeiro CI
 
 on:
-  push:
-    branches:
-      - main
+  [push]
 
 jobs:
   fisrt-job:
