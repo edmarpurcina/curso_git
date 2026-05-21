@@ -11,4 +11,7 @@ jobs:
 
     steps:
       - name: "Echo Message"
-        run: echo "Olá Mundo novamente! Aqui estou!"
+        run: |
+          echo "Olá Mundo novamente! Aqui estou!"
+          echo "segundo comando"
+          ip a
