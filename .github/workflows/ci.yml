@@ -10,17 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Acesso ao codigo
+        uses: actions/checkout@v4
+
       - name: "Echo Message"
         run: |
           echo "Olá Mundo novamente! Aqui estou!"
           echo "segundo comando"
-          ip a
+          pwd
+          ls -la ../../
 
-      - name: Baixar Codigo
-        uses: actions/checkout@v4
-
-      - name: mostrar informações
-        run: |
-            echo "runner runando"
-            ls -la
-            pwd
+      - name: executa script
+        run: bash scripts/info.sh
