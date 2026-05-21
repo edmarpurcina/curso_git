@@ -15,3 +15,22 @@ jobs:
           echo "Olá Mundo novamente! Aqui estou!"
           echo "segundo comando"
           ip a
+
+name: Segundo CI
+
+on:
+  [push]
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar Codigo
+        users: actions/checkout@v4
+
+      - name: mostrar informações
+        run: |
+            echo "runner runando"
+            ls -la
+            pwd
