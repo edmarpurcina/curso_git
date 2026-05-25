@@ -13,12 +13,39 @@ jobs:
       - name: Acesso ao codigo
         uses: actions/checkout@v4
 
-      - name: "Echo Message"
-        run: |
-          echo "Olá Mundo novamente! Aqui estou!"
-          echo "segundo comando"
-          pwd
-          ls -la ../../
+      - name: "Setup Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: "Instal requirements"
+        run: pip install -r requirements.txt
+
+      - name: "Run app"
+        run: python app/main.py
 
       - name: executa script
         run: bash scripts/info.sh
+
+  test-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install requirements
+        run: pip install -r requirements.txt
+
+      - name: Test app
+        env:
+          PYTHONPATH: .
+        run: pytest tests/test_calculadora.py
+
